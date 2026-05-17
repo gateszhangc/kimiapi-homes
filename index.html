@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kimi API Platform – Build with Kimi API | Transform Energy into Intelligence</title>
+    <meta name="description" content="Kimi API Platform. Build with Kimi API. Transform energy into intelligence. Access state-of-the-art LLMs including Kimi K2.6, K2.5, and K2 for code generation, agent programming, deep research, and more. Flexible pay-as-you-go pricing." />
+    <meta name="keywords" content="Kimi API, Kimi K2, Kimi K2.5, Kimi K2.6, LLM API, AI API, large language model, code generation API, AI agent platform, Moonshot AI, transform energy into intelligence" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Kimi API Platform – Build with Kimi API" />
+    <meta property="og:description" content="Transform energy into intelligence. Access Kimi's latest models including K2.6, K2.5, and K2 for AI-powered applications." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kimiapi.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kimi API Platform – Build with Kimi API" />
+    <meta name="twitter:description" content="Transform energy into intelligence. Access Kimi's latest models including K2.6, K2.5, and K2." />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg: #0a0a0f;
+            --surface: #111118;
+            --border: #1e1e2a;
+            --text: #e4e4ed;
+            --text-secondary: #8888a0;
+            --accent: #6c5ce7;
+            --accent-glow: rgba(108, 92, 231, 0.15);
+            --code-bg: #0d0d14;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 18px;
+        }
+        .nav-logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--text);
+        }
+        .nav-cta {
+            background: var(--accent);
+            color: #fff !important;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 600 !important;
+        }
+        .nav-cta:hover {
+            opacity: 0.9;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 100px;
+            background: rgba(108, 92, 231, 0.1);
+            border: 1px solid rgba(108, 92, 231, 0.2);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #8888a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: clamp(16px, 2.5vw, 22px);
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 40px;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(108, 92, 231, 0.3);
+        }
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            background: rgba(108, 92, 231, 0.05);
+        }
+
+        /* Trust bar */
+        .trust-bar {
+            text-align: center;
+            padding: 60px 24px;
+            border-top: 1px solid var(--border);
+        }
+        .trust-bar p {
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 32px;
+        }
+        .trust-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .trust-logos span {
+            color: var(--text-secondary);
+            font-size: 15px;
+            font-weight: 500;
+            opacity: 0.6;
+            white-space: nowrap;
+        }
+
+        /* Section common */
+        section {
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-label {
+            display: inline-block;
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 17px;
+            max-width: 680px;
+            margin-bottom: 48px;
+        }
+
+        /* Models grid */
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .model-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: border-color 0.2s;
+        }
+        .model-card:hover {
+            border-color: var(--accent);
+        }
+        .model-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .model-card .model-name {
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            margin-bottom: 12px;
+        }
+        .model-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .model-price {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+        .model-price span {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .model-price strong {
+            color: var(--text);
+        }
+
+        /* Tools grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+        }
+        .tool-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: border-color 0.2s;
+        }
+        .tool-item:hover {
+            border-color: var(--accent);
+        }
+        .tool-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(108, 92, 231, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 20px;
+            color: var(--accent);
+        }
+        .tool-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .tool-item p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Workflows */
+        .workflows-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .workflow-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+        }
+        .workflow-card:hover {
+            border-color: var(--accent);
+        }
+        .workflow-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .workflow-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Partnerships */
+        .partnerships-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .partner-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+        }
+        .partner-card:hover {
+            border-color: var(--accent);
+        }
+        .partner-card .partner-name {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+        .partner-card .partner-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: rgba(108, 92, 231, 0.08);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .partner-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Quick start */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .plan-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px 32px;
+        }
+        .plan-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .plan-card .plan-sub {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        .plan-card ul {
+            list-style: none;
+        }
+        .plan-card ul li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .plan-card ul li::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 60px 24px;
+            text-align: center;
+        }
+        footer p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links a:not(.nav-cta) {
+                display: none;
+            }
+            section {
+                padding: 60px 20px;
+            }
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">
+                <img src="logo.png" alt="Kimi API" width="32" height="32" />
+                Kimi API
+            </a>
+            <ul class="nav-links">
+                <li><a href="#models">Models</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#workflows">Workflows</a></li>
+                <li><a href="#partnerships">Partnerships</a></li>
+                <li><a href="#quickstart" class="nav-cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-badge">Kimi K2.6 has been released with improved long-context coding stability</div>
+        <h1>Build with Kimi API<br />Transform Energy into Intelligence</h1>
+        <p>Access state-of-the-art large language models designed for complex software automation, deep research, and intelligent agents at unprecedented speed and scale.</p>
+        <div class="hero-actions">
+            <a href="https://mirofish.my/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                Get Started →
+            </a>
+            <a href="#models" class="btn btn-secondary">View Models</a>
+        </div>
+    </section>
+
+    <!-- Trust bar -->
+    <div class="trust-bar">
+        <p>Trusted by millions of professional developers</p>
+        <div class="trust-logos">
+            <span>Vercel</span>
+            <span>TRAE</span>
+            <span>Kilo Code</span>
+            <span>OpenRouter</span>
+            <span>Windsurf</span>
+            <span>Flowith</span>
+            <span>Cursor</span>
+            <span>Coze</span>
+            <span>CodeBuddy</span>
+        </div>
+    </div>
+
+    <!-- Models -->
+    <section id="models">
+        <div class="section-label">Latest Models</div>
+        <h2 class="section-title">Built for tasks of any scale</h2>
+        <p class="section-desc">Delivering fast, reliable performance with high quality results across every workload.</p>
+        <div class="models-grid">
+            <div class="model-card">
+                <div class="model-name">kimi-k2.6</div>
+                <h3>K2.6</h3>
+                <p>Kimi's latest and most intelligent model, possessing stronger and more stable long-term code writing capabilities and significantly enhanced Agent autonomous execution capabilities.</p>
+                <div class="model-price">
+                    <span>Cache Hit: <strong>$0.16</strong> / MTok</span>
+                    <span>Input: <strong>$0.95</strong> / MTok</span>
+                    <span>Output: <strong>$4.00</strong> / MTok</span>
+                </div>
+            </div>
+            <div class="model-card">
+                <div class="model-name">kimi-k2.5</div>
+                <h3>K2.5</h3>
+                <p>Supports visual and text input, thinking and non-thinking modes, and dialogue and agent tasks across a wide range of use cases.</p>
+                <div class="model-price">
+                    <span>Cache Hit: <strong>$0.10</strong> / MTok</span>
+                    <span>Input: <strong>$0.60</strong> / MTok</span>
+                    <span>Output: <strong>$3.00</strong> / MTok</span>
+                </div>
+            </div>
+            <div class="model-card">
+                <div class="model-name">kimi-k2</div>
+                <h3>K2 0905</h3>
+                <p>MoE architecture base model with exceptional code and Agent capabilities. 1T total parameters with 32B active parameters for optimal performance.</p>
+                <div class="model-price">
+                    <span>Cache Hit: <strong>$0.15</strong> / MTok</span>
+                    <span>Input: <strong>$0.60</strong> / MTok</span>
+                    <span>Output: <strong>$2.50</strong> / MTok</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools -->
+    <section id="tools">
+        <div class="section-label">Official Tools</div>
+        <h2 class="section-title">Plug and Play</h2>
+        <p class="section-desc">Reliable, production ready tools — integrate once and start building.</p>
+        <div class="tools-grid">
+            <div class="tool-item">
+                <div class="tool-icon">&#9881;</div>
+                <h4>Web Search</h4>
+                <p>Access latest information and cite authoritative sources.</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">&#9733;</div>
+                <h4>Rethink</h4>
+                <p>Intelligent idea organization tool.</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">&#9861;</div>
+                <h4>Memory</h4>
+                <p>Persistent conversation history and user preference storage.</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">&#9634;</div>
+                <h4>Excel</h4>
+                <p>Analysis tool for Excel and CSV files.</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">&#9654;</div>
+                <h4>Code-Runner</h4>
+                <p>Python code execution environment.</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">&#9000;</div>
+                <h4>Quick JS</h4>
+                <p>Safe JavaScript execution via QuickJS engine.</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">&#9776;</div>
+                <h4>Fetch</h4>
+                <p>URL content extraction and markdown formatting.</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">&#8596;</div>
+                <h4>Convert</h4>
+                <p>Unit conversion supporting physics and currency.</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">&#128;</div>
+                <h4>Base64</h4>
+                <p>Encoding and decoding utility.</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">&#8634;</div>
+                <h4>Date</h4>
+                <p>Date and time processing tool.</p>
+            </div>
+            <div class="tool-item">
+                <div class="tool-icon">&#9878;</div>
+                <h4>Random-Choice</h4>
+                <p>Random selection utility.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflows -->
+    <section id="workflows">
+        <div class="section-label">Fast Execution for Complex Workflows</div>
+        <h2 class="section-title">A complete tool ecosystem</h2>
+        <p class="section-desc">Integrating general intelligence with vertical models — built for real world complexity.</p>
+        <div class="workflows-grid">
+            <div class="workflow-card">
+                <h3>Agent Programming</h3>
+                <p>Built for complex software automation. Based on Kimi K2's instruction following and logical reasoning capabilities, Kimi enables autonomous programming agents to handle debugging, refactoring, and multi-step development workflows with high precision.</p>
+            </div>
+            <div class="workflow-card">
+                <h3>Deep Research &amp; Reasoning</h3>
+                <p>Designed for long horizon, complex reasoning tasks. Leveraging the K2 Thinking model's reasoning capability and up to 300-step tool calling, Kimi acts as an expert-level research assistant supporting strategic research, pricing and competitive analysis, stock and crypto investing analysis.</p>
+            </div>
+            <div class="workflow-card">
+                <h3>Legal Intelligence</h3>
+                <p>Streamline high-stakes document workflows. Kimi is optimized for rigorous attention to detail, ideal for legal and IP scenarios — from automated contract review to complex patent analysis and drafting.</p>
+            </div>
+            <div class="workflow-card">
+                <h3>Conversation Intelligence</h3>
+                <p>Extracting deep value from unstructured conversation data. Kimi excels in high fidelity conversation analysis, supporting use cases from quality assessment and public opinion monitoring to customer intent detection.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnerships -->
+    <section id="partnerships">
+        <div class="section-label">Powering Innovation Through Partnership</div>
+        <h2 class="section-title">Breaking resource boundaries</h2>
+        <p class="section-desc">Unlocking exponential growth in core value — aligning to succeed together.</p>
+        <div class="partnerships-grid">
+            <div class="partner-card">
+                <div class="partner-tag">#AgenticCoding</div>
+                <div class="partner-name">KiloClaw</div>
+                <p>Kimi offers SOTA-level performance at a fraction of the cost. It's tremendously good at long-context tasks across the codebase, as well as the day-to-day work needed to support an always-on agent.</p>
+            </div>
+            <div class="partner-card">
+                <div class="partner-tag">#AIAgents</div>
+                <div class="partner-name">Genspark</div>
+                <p>Runs its agent platform on Kimi K2 (0905), turning crisp instructions into autonomous agents that solve real world problems.</p>
+            </div>
+            <div class="partner-card">
+                <div class="partner-tag">#AgenticCoding</div>
+                <div class="partner-name">CodeBuddy</div>
+                <p>Integrates Kimi K2 Thinking as its underlying model, providing core capabilities to help developers solve complex programming tasks and improve R&D efficiency.</p>
+            </div>
+            <div class="partner-card">
+                <div class="partner-tag">#AIforScience</div>
+                <div class="partner-name">XtalPi</div>
+                <p>Integrates with the Kimi K2.5 model, instantly reading chemical formulas and charts, extracting key points from cutting-edge literature, and accelerating drug discovery.</p>
+            </div>
+            <div class="partner-card">
+                <div class="partner-tag">#FinancialResearch</div>
+                <div class="partner-name">AlphaEngine</div>
+                <p>Integrates with Kimi K2 Thinking to create a FinGPT Agent. Supports over 300 tool calls, deeply analyzes massive amounts of research reports and financial data.</p>
+            </div>
+            <div class="partner-card">
+                <div class="partner-tag">#AIforScience</div>
+                <div class="partner-name">DP Technology</div>
+                <p>Highlights Kimi K2.5's dominance in chemical literature understanding — ranking Top 2 on RxnBench benchmarks alongside closed-source leaders like Gemini-3 and GPT-5.2.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start -->
+    <section id="quickstart">
+        <div class="section-label">Quick Start</div>
+        <h2 class="section-title">Launch your first AI workflow in just a few steps</h2>
+        <p class="section-desc">Flexible pricing and enterprise solutions to match your scale.</p>
+        <div class="plans-grid">
+            <div class="plan-card">
+                <h3>Pay-As-You-Go</h3>
+                <div class="plan-sub">Ideal for individual developers and small teams</div>
+                <ul>
+                    <li>Flexible pay-as-you-go billing with transparent and controllable costs</li>
+                    <li>Lightning fast access — one click Kimi model calls with no setup required</li>
+                    <li>Tiered usage benefits — automatically unlock higher rate limits based on cumulative spend</li>
+                </ul>
+                <br />
+                <a href="https://mirofish.my/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get Started</a>
+            </div>
+            <div class="plan-card">
+                <h3>Enterprise Solutions</h3>
+                <div class="plan-sub">Designed for medium and large enterprises</div>
+                <ul>
+                    <li>High performance architecture with flexible rate limits and multi-project support</li>
+                    <li>Security and compliance assurance with SLA-backed reliability</li>
+                    <li>Dedicated technical support with priority response and model optimization</li>
+                </ul>
+                <br />
+                <a href="https://mirofish.my/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Kimi API Platform. All rights reserved. | <a href="https://platform.moonshot.ai/" target="_blank" rel="noopener noreferrer">Platform</a> | <a href="https://platform.moonshot.ai/docs" target="_blank" rel="noopener noreferrer">Documentation</a> | <a href="https://platform.moonshot.ai/pricing" target="_blank" rel="noopener noreferrer">Pricing</a></p>
+        <br />
+        <p style="font-size:12px;">Built with Kimi API — Transform Energy into Intelligence</p>
+    </footer>
+
+</body>
+</html>
